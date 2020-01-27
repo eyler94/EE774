@@ -3,7 +3,7 @@ import numpy as np
 
 A = np.array([[1, 2, 3],
               [4, 5, 6],
-              [-1, -1, 1]])
+              [-1, -1, 2]])
 
 print("A:\n", A)
 
@@ -15,7 +15,7 @@ print(f"1-norm: {ans1}\n2-norm: {ans2}\ninf-norm: {ansinf}\n")
 
 # One norm
 for spot, row in enumerate(A.T):
-    temp = np.sum(row)
+    temp = np.sum(np.abs(row))
     if spot==0:
         ans1 = temp
     else:
@@ -35,7 +35,7 @@ for spot, val in enumerate(e_val):
 
 # Infinity norm
 for spot, row in enumerate(A):
-    temp = np.sum(row)
+    temp = np.sum(np.abs(row))
     if spot==0:
         ansinf = temp
     else:
