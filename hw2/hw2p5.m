@@ -4,25 +4,25 @@ close all
 
 %phase portraits
 %Followed the example found in http://matlab.cheme.cmu.edu/2011/08/09/phase-portraits-of-a-system-of-odes/
-func1 = @(t, X) [-X(2); -0.5*X(1) + 1.5*X(2)];
-func2 = @(t, X) [-X(2); -0.5*X(1) + 1.5*X(2) + 0.5*(0.9*X(1)-3.2*X(2))];
-func3 = @(t, X) [-X(2); -0.5*X(1) + 1.5*X(2) + 0.5*sat(0.9*X(1)-3.2*X(2),1)];
+func1 = @(t, X) [X(2); -0.5*X(1) + 1.5*X(2)];
+func2 = @(t, X) [X(2); -0.5*X(1) + 1.5*X(2) + 0.5*(0.9*X(1)-3.2*X(2))];
+func3 = @(t, X) [X(2); -0.5*X(1) + 1.5*X(2) + 0.5*sat(0.9*X(1)-3.2*X(2),1)];
 
 
 %part a
-limit = 100;
+limit = 1;
 time_set=0.5;
-res = 1;
+res = 0.1;
 problem5(limit, res, time_set, func1)
 
 % part b
-limit = 10;
+limit = 1;
 time_set=0.5;
 res = 0.1;
 problem5(limit, res, time_set, func2)
 
 % part c
-limit = 10;
+limit = 1;
 time_set=0.5;
 res = 0.1;
 problem5(limit, res, time_set, func3)
