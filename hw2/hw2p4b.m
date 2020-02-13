@@ -57,4 +57,5 @@ for point_iter = -2:0.1:2
     plot(points(end,1), points(end,2),'bs')
 end
 
-
+%%% It's clear from the phase portrait that there are 2 stable nodes and 1
+%%% saddle point.
