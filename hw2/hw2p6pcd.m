@@ -1,41 +1,57 @@
 clc
-clear
+clear all
 close all
 
 %phase portraits
 %Followed the example found in http://matlab.cheme.cmu.edu/2011/08/09/phase-portraits-of-a-system-of-odes/
-func1 = @(t, X) [X(2); -0.5*X(1) + 1.5*X(2)];
-func2 = @(t, X) [X(2); -0.5*X(1) + 1.5*X(2) + 0.5*(0.9*X(1)-3.2*X(2))];
-func3 = @(t, X) [X(2); -0.5*X(1) + 1.5*X(2) + 0.5*sat(0.9*X(1)-3.2*X(2),1)];
 
 
-%part a
-limit = 1;
-time_set=1;
+%part c1
+func = @(t, X) [X(1)-1/3*X(1)^3-X(2) + 0; 0.1*(2+1.5*X(1)-X(2))];
+limit = 5;
+time_set=20;
 res = 0.1;
-problem5(limit, res, time_set, func1)
-%%% Clearly an unstable node/focus.
 
-% part b
-limit = 10;
-time_set=5;
+problem8(limit, res, time_set, func)
+%%% It appears to want to be a stable, center, unstable focus, but gets
+%%% sucked into a single point. I'm not sure why. 
+
+%%% It's called a stable node ya dummy.
+
+%part c2
+func = @(t, X) [X(1)-1/3*X(1)^3-X(2) + 2; 0.1*(2+1.5*X(1)-X(2))];
+limit = 5;
+time_set=20;
 res = 0.1;
-problem5(limit, res, time_set, func2)
-%%% Clearly a center focus.
 
-%%% Stable focus
+problem8(limit, res, time_set, func)
+%%% This one is definitely a stable, center, unstable focus. Super cool!
 
-% part c
-limit = 1;
-time_set=10;
+%%% Stable limit cycle, not center, and unstable node not focus.
+
+%part c1
+func = @(t, X) [X(1)-1/3*X(1)^3-X(2) + 0; 0.1*(2+0.5*X(1)-X(2))];
+limit = 5;
+time_set=20;
 res = 0.1;
-problem5(limit, res, time_set, func3)
-%%% Has an unstable, center, and stable foci.
 
-%%% This is called a stable limit cycle with an unstable focus at the
-%%% origin.
+problem8(limit, res, time_set, func)
+%%% It appears to want to be a stable, center, unstable focus, but gets
+%%% sucked into two points this time. I'm 
 
-function [] = problem5(limit, res, time_set, func)
+%%% Two stable nodes... need I say more?
+
+%part c2
+func = @(t, X) [X(1)-1/3*X(1)^3-X(2) + 2; 0.1*(2+0.5*X(1)-X(2))];
+limit = 5;
+time_set=20;
+res = 0.1;
+
+problem8(limit, res, time_set, func)
+%%% A saddle point with two stable foci on each side.
+
+
+function [] = problem8(limit, res, time_set, func)
     x1 = linspace(-limit, limit, 40);
     x2 = linspace(-limit, limit, 40);
 
@@ -85,8 +101,5 @@ function []=phaser(t_span, x1, x2, func)
         plot(points(end,1), points(end,2), 'bs')
 end
 
-function u = sat(u,lim)
-    if (abs(u) >= 1)
-        u = sign(u)*lim;
-    end
-end
+
+

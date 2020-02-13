@@ -1,1 +1,8 @@
-*.m~
+*.png
+*.pdf
+*.jpg
+*.avi
+*.mp4
+./.idea
+./hw*/__pycache__/*
+*.zip

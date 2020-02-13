@@ -19,4 +19,9 @@ for init = [[0;2;0] [0;-2;0] [0;2.01;0]]
     plot3(points(:,1),points(:,2),points(:,3));%,'Linewidth',1.5);
     plot3(points(1,1),points(1,2),points(1,3),'bo');
     plot3(points(end,1),points(end,2),points(end,3),'bs');
+    pause
 end
+
+%%% The solutions move toward the stable foci. Small deviations in this
+%%% case do not lead to vast differences, although negating the value was
+%%% enough to drive to a mirrored focus point.
