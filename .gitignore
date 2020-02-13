@@ -6,3 +6,4 @@
 ./.idea
 ./hw*/__pycache__/*
 *.zip
+*.m~
