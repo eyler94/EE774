@@ -1,7 +1,7 @@
 clc
 clear
 close all
-%%%part D
+%%%Part D
 func_w = @(t,w) [w(2)*w(3)/3; (-2)*w(1)*w(3)/2; w(1)*w(2)];
 
 t_final = 10;
@@ -16,17 +16,7 @@ for iter = 0:1000
     plot3(points(end,1), points(end,2), points(end,3), 'bs')
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+%%%Part E
+% Two of the body axes (b1 and b3) will continue to spin about them (the
+% are stable centers. b2 however is a saddle point and will not remain
+% nearby.
